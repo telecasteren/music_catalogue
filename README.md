@@ -1,5 +1,5 @@
-# Music Catalogue
+# That 70's Music Catalogue
 
-A library to store which LP's I've got in my collection and quickly search the catalogue.
+A library to store and search my collection of LP records.
 
-## React + TypeScript + Vite + MUI application
+### React + TypeScript + Vite + MUI application

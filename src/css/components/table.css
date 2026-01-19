@@ -1,0 +1,31 @@
+.table-container {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 10px;
+  border: 1px solid #dddddd;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.table-container th {
+  background-color: var(--accent-secondary);
+  color: #dcdcdc;
+  font-size: 1.1rem;
+}
+
+.table-container th,
+.table-container td {
+  border: 1px solid #dddddd;
+  padding: 20px;
+  text-align: left;
+}
+
+.table-container td {
+  background-color: var(--background-secondary);
+}

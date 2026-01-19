@@ -1,0 +1,14 @@
+@import url("../css/variables.css");
+@import url("../css/components/table.css");
+
+:root {
+  font-family: "Roboto", system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+  color-scheme: light dark;
+  color: var(--text-primary);
+  background-color: var(--background-primary);
+}
+
+body {
+  margin: 20px;
+}

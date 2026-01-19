@@ -1,0 +1,16 @@
+:root {
+  --background-primary: #1c1b1a;
+  --background-secondary: #524e47;
+
+  --text-primary: #e7e7e7;
+
+  --accent-primary: #247c27;
+  --accent-secondary: #2a2308;
+
+  --input-field-primary: #d0d0d0;
+  --input-field-secondary: #a0a0a0;
+  --input-field-hover: #8fbd8b;
+
+  --button-primary-bg: #887114;
+  --button-primary-text: #e7e7e7;
+}
