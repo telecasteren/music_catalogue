@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "artist": "Kiss",
+    "album": "Hotter than Hell",
+    "releaseYear": 1974,
+    "genre": "Rock"
+  },
+  {
+    "id": 2,
+    "artist": "Metallica",
+    "album": "Ride the Lightning",
+    "releaseYear": 1984,
+    "genre": "Metal"
+  },
+  {
+    "id": 3,
+    "artist": "Nirvana",
+    "album": "Nevermind",
+    "releaseYear": 1991,
+    "genre": "Grunge"
+  },
+  {
+    "id": 4,
+    "artist": "Pink Floyd",
+    "album": "The Dark Side of the Moon",
+    "releaseYear": 1973,
+    "genre": "Progressive Rock"
+  },
+  {
+    "id": 5,
+    "artist": "The Beatles",
+    "album": "Abbey Road",
+    "releaseYear": 1969,
+    "genre": "Rock"
+  }
+]

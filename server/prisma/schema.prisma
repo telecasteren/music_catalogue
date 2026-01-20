@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// Migrate: npx prisma migrate dev --name init
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+model Album {
+  id          Int     @id @default(autoincrement())
+  addedDate   DateTime @default(now())
+  artist      String
+  album       String
+  releaseYear Int
+  genre       String
+
+  @@index([artist])
+  @@index([genre])
+}

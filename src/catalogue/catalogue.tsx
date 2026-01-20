@@ -1,7 +1,6 @@
-import Library from "../utils/helpers/mockup-data.json";
-import type { MusicEntry } from "../search/types";
+import type { MusicEntry } from "../utils/types";
 
-export const Catalogue = () => {
+export const Catalogue = ({ albums }: { albums: MusicEntry[] }) => {
   return (
     <div>
       <div>
@@ -19,11 +18,16 @@ export const Catalogue = () => {
             </tr>
           </thead>
           <tbody>
-            {Library.map((item: MusicEntry, index: number) => (
+            {albums.map((item: MusicEntry, index: number) => (
               <tr key={index}>
                 <td>{item.artist}</td>
                 <td>{item.album}</td>
-                <td>{item.genre}</td>
+                <td>
+                  {item.genre
+                    .split("-")
+                    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+                    .join(" ")}
+                </td>
                 <td>{item.releaseYear}</td>
               </tr>
             ))}

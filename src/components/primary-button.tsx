@@ -4,9 +4,10 @@ interface PrimaryButtonProps {
   text: string;
   onClick?: () => void;
   icon?: React.ReactNode;
+  type?: "button" | "submit" | "reset";
 }
 
-const PrimaryButton = ({ text, onClick, icon }: PrimaryButtonProps) => {
+const PrimaryButton = ({ text, onClick, icon, type }: PrimaryButtonProps) => {
   return (
     <Button
       sx={{
@@ -18,6 +19,7 @@ const PrimaryButton = ({ text, onClick, icon }: PrimaryButtonProps) => {
       variant="contained"
       onClick={onClick}
       startIcon={icon}
+      type={type}
     >
       {text}
     </Button>

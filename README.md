@@ -3,3 +3,10 @@
 A library to store and search my collection of LP records.
 
 ### React + TypeScript + Vite + MUI application
+
+## Run
+
+cd server
+npm run dev (backend)
+cd ..
+npm run dev (frontend)
