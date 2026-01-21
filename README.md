@@ -40,3 +40,13 @@ npm run dev
 cd .. # root
 npm run dev
 ```
+
+## Prisma ORM
+
+To import and use the Prisma client, import it from the generated folder
+
+```ts
+import { PrismaClient } from "../generated/prisma/client";
+```
+
+See [prisma schema](server/prisma/schema.prisma)
