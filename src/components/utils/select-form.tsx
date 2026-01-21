@@ -10,9 +10,11 @@ export const SelectForm = ({ value, onChange }: SelectFormProps) => {
   const menuItemList = [
     { value: "heavy-metal", label: "Heavy Metal" },
     { value: "rock", label: "Rock" },
+    { value: "classic-rock", label: "Classic Rock" },
     { value: "punk-rock", label: "Punk Rock" },
     { value: "folk", label: "Folk" },
     { value: "pop", label: "Pop" },
+    { value: "pop-rock", label: "Pop Rock" },
     { value: "jazz", label: "Jazz" },
     { value: "classical", label: "Classical" },
   ];
@@ -36,39 +38,6 @@ export const SelectForm = ({ value, onChange }: SelectFormProps) => {
         value={value}
         label="Genre"
         onChange={onChange}
-        sx={{
-          "& .MuiInputBase-input": {
-            color: "var(--input-field-primary)",
-          },
-          "& .MuiInputLabel-root": {
-            color: "var(--input-field-primary)",
-          },
-          "& .MuiInputLabel-root.Mui-focused": {
-            color: "var(--input-field-secondary)",
-          },
-          "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
-            borderColor: "var(--input-field-secondary)",
-          },
-          "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-            {
-              borderColor: "var(--input-field-primary)",
-            },
-          "& .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "var(--input-field-hover)",
-          },
-          "& .MuiOutlinedInput-notchedOutline": {
-            borderColor: "var(--input-field-secondary)",
-          },
-          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-            borderColor: "var(--input-field-primary)",
-          },
-          "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "var(--input-field-hover)",
-          },
-          "& .MuiSelect-icon": {
-            color: "var(--input-field-primary)",
-          },
-        }}
       >
         {menuItemList.map((item) => (
           <MenuItem key={item.value} value={item.value}>

@@ -1,0 +1,23 @@
+.MuiInputBase-input {
+  color: var(--input-field-primary) !important;
+}
+.MuiInputBase-input::placeholder {
+  color: var(--input-field-primary) !important;
+}
+
+.MuiInputLabel-root {
+  color: var(--input-field-primary) !important;
+}
+.MuiInputLabel-root.Mui-focused {
+  color: var(--input-field-secondary) !important;
+}
+
+.MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+  border-color: var(--input-field-secondary) !important;
+}
+.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: var(--input-field-primary) !important;
+}
+.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+  border-color: var(--input-field-hover) !important;
+}

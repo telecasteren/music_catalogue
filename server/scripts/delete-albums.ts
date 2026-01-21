@@ -14,3 +14,6 @@ const deleteAlbums = async () => {
 };
 
 deleteAlbums();
+
+// Run from server folder
+// npx ts-node scripts/delete-albums.ts

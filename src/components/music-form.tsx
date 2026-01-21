@@ -5,7 +5,8 @@ import { AlbumIcon } from "./utils/mui-icons";
 import type { MusicEntry } from "../utils/types";
 import { SelectForm } from "./utils/select-form";
 import type { SelectChangeEvent } from "@mui/material";
-// import { NumberField } from "./utils/number-field";
+import { DatePickerElement } from "./utils/mui-datepicker";
+import dayjs from "dayjs";
 
 interface MusicFormProps {
   onSubmit: (album: Omit<MusicEntry, "id" | "addedDate">) => void;
@@ -16,8 +17,7 @@ const MusicForm = ({ onSubmit }: MusicFormProps) => {
     artist: "",
     album: "",
     genre: "",
-    releaseYear: "",
-    // releaseYear: 0,
+    releaseYear: 0,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -37,7 +37,7 @@ const MusicForm = ({ onSubmit }: MusicFormProps) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      onSubmit({ ...form, releaseYear: Number(form.releaseYear) });
+      onSubmit(form);
       console.log("Form submitted");
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -60,22 +60,12 @@ const MusicForm = ({ onSubmit }: MusicFormProps) => {
           onChange={handleChange}
         />
         <SelectForm value={form.genre} onChange={handleSelectChange} />
-        <InputField
-          label="Release Year"
-          id="releaseYear"
-          value={form.releaseYear}
-          onChange={handleChange}
+        <DatePickerElement
+          value={form.releaseYear ? dayjs(`${form.releaseYear}`) : null}
+          onChange={(date: dayjs.Dayjs | null) => {
+            setForm({ ...form, releaseYear: date ? date.year() : 0 });
+          }}
         />
-        {/* <NumberField
-          label="Release Year"
-          min={1900}
-          max={new Date().getFullYear()}
-          id="releaseYear"
-          value={form.releaseYear ?? 0}
-          onValueChange={(value) =>
-            setForm({ ...form, releaseYear: value ?? 0 })
-          }
-        /> */}
 
         <PrimaryButton
           text="Add to catalogue"

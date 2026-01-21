@@ -1,12 +1,17 @@
-# That 70's Music Catalogue
+# Music Catalogue
 
-A library to store and search my collection of LP records.
+A library of my vinyl collection.
+
+- Add a new record entry
+- Search through the collection
+- Go on a nostalgia trip
 
 ### Tech
 
 - Prisma ORM
 - Neon Postgres
 - Vite
+- Express
 - MUI
 - React
 - Typescript
@@ -50,3 +55,19 @@ import { PrismaClient } from "../generated/prisma/client";
 ```
 
 See [prisma schema](server/prisma/schema.prisma)
+
+### Prisma studio
+
+Spin up the Prisma interface by running
+
+```bash
+npm run prisma # prisma studio
+```
+
+Outcome
+
+```bash
+Prisma Studio is up on http://localhost:5555
+```
+
+Here you'll see the data table(s).

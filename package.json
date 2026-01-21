@@ -11,7 +11,8 @@
     "dev:all": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prisma": "cd server && npx prisma studio"
   },
   "dependencies": {
     "@base-ui/react": "^1.1.0",
@@ -21,6 +22,8 @@
     "@mui/base": "^5.0.0-beta.70",
     "@mui/icons-material": "^7.3.7",
     "@mui/material": "^7.3.7",
+    "@mui/x-date-pickers": "^8.25.0",
+    "dayjs": "^1.11.19",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

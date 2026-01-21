@@ -1,0 +1,41 @@
+/*--- Calendar Input value ---*/
+.MuiPickersSectionList-sectionContent {
+  color: var(--input-field-primary) !important;
+}
+.MuiPickersSectionList-sectionContent:focus {
+  color: var(--input-field-secondary) !important;
+}
+
+/*--- Calendar Input label ---*/
+.MuiInputLabel-root,
+.MuiFormLabel-root {
+  color: var(--input-field-primary) !important;
+}
+.MuiInputLabel-root.Mui-focused,
+.MuiFormLabel-root.Mui-focused {
+  color: var(--input-field-secondary) !important;
+}
+
+/*--- Calendar Input border ---*/
+.MuiPickersOutlinedInput-notchedOutline {
+  border-color: var(--input-field-secondary) !important;
+}
+.MuiPickersOutlinedInput-root:hover .MuiPickersOutlinedInput-notchedOutline {
+  border-color: var(--input-field-hover) !important;
+}
+
+/*--- Calendar icon ---*/
+.MuiSvgIcon-root {
+  color: var(--input-field-primary) !important;
+}
+
+/*--- Year calendar window ---*/
+.MuiPaper-elevation,
+.MuiPaper-rounded,
+.MuiPaper-elevation24 {
+  background-color: var(--background-primary) !important;
+  color: var(--text-primary) !important;
+}
+.MuiTypography-root {
+  color: var(--text-primary) !important;
+}
