@@ -13,6 +13,7 @@ interface MusicFormProps {
 }
 
 const MusicForm = ({ onSubmit }: MusicFormProps) => {
+  const [error, setError] = useState<string | null>(null);
   const [form, setForm] = useState({
     artist: "",
     album: "",
@@ -36,16 +37,28 @@ const MusicForm = ({ onSubmit }: MusicFormProps) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    try {
-      onSubmit(form);
-      console.log("Form submitted");
-    } catch (error) {
-      console.error("Error submitting form:", error);
+    const missingFields = [];
+    if (!form.artist) missingFields.push("Artist");
+    if (!form.album) missingFields.push("Album");
+    if (!form.genre) missingFields.push("Genre");
+    if (!form.releaseYear) missingFields.push("Release Year");
+
+    if (missingFields.length > 0) {
+      setError(`Required fields: ${missingFields.join(", ")}`);
+      return;
     }
+
+    setError(null);
+    onSubmit(form);
   };
 
   return (
     <div className="music-form-container">
+      {error && (
+        <div className="form-error" style={{ color: "red", marginBottom: 12 }}>
+          {error}
+        </div>
+      )}
       <form className="music-form" onSubmit={handleSubmit}>
         <InputField
           label="Artist"

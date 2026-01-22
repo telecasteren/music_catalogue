@@ -88,7 +88,7 @@ const App = () => {
 
   return (
     <>
-      <h1>That 70's Music Catalogue</h1>
+      <h1>Music Catalogue</h1>
       <div className="action-options">
         <PrimaryButton
           text="See catalogue"
