@@ -23,8 +23,23 @@ router.get("/", async (_, res) => {
 router.post("/", async (req, res) => {
   try {
     const { artist, album, genre, releaseYear } = req.body;
+
+    const trimmedArtist = artist.trim();
+    const trimmedAlbum = album.trim();
+
+    const existingAlbum = await prisma.album.findFirst({
+      where: {
+        artist: { equals: trimmedArtist, mode: "insensitive" },
+        album: { equals: trimmedAlbum, mode: "insensitive" },
+      },
+    });
+
+    if (existingAlbum) {
+      return res.status(409).json({ error: "Album already exists" });
+    }
+
     const newAlbum = await prisma.album.create({
-      data: { artist, album, genre, releaseYear },
+      data: { artist: trimmedArtist, album: trimmedAlbum, genre, releaseYear },
     });
     res.status(201).json(newAlbum);
   } catch (error) {

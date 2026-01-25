@@ -63,15 +63,17 @@ const App = () => {
   const handleAddingAlbums = async (
     albumData: Omit<MusicEntry, "id" | "addedDate">,
   ) => {
-    const newAlbum = await addAlbumEntry(albumData);
-    if (newAlbum) {
-      setAlbums((prev) => [newAlbum, ...prev]);
-      setDisplayForm(false);
-      setUserMessage("Album added to collection.");
-      setIsSuccess(true);
-      setTimeout(() => setUserMessage(""), 3000);
-    } else {
-      setUserMessage("Couldn't add album.");
+    try {
+      const newAlbum = await addAlbumEntry(albumData);
+      if (newAlbum) {
+        setAlbums((prev) => [newAlbum, ...prev]);
+        setDisplayForm(false);
+        setUserMessage("Album added to collection.");
+        setIsSuccess(true);
+        setTimeout(() => setUserMessage(""), 3000);
+      }
+    } catch (error) {
+      setUserMessage((error as Error).message);
       setIsSuccess(false);
       setTimeout(() => setUserMessage(""), 4000);
     }
@@ -80,6 +82,31 @@ const App = () => {
   return (
     <>
       <h1>Music Catalogue</h1>
+
+      <div className="search-container">
+        <InputField id="search-bar" label="Search catalogue.." />
+        <PrimaryButton
+          text="Search"
+          icon={<SearchIcon />}
+          onClick={() => handleSearch()}
+        />
+      </div>
+
+      <div className="action-options">
+        <PrimaryButton
+          text="See catalogue"
+          icon={<LibraryMusicIcon />}
+          onClick={setCatalogue}
+        />
+
+        <PrimaryButton
+          text="Add new entry"
+          icon={<LibraryAddIcon />}
+          onClick={setForm}
+        />
+      </div>
+
+      {hasSearched && results.length === 0 ? <div>No results found</div> : null}
 
       {userMessage && isSuccess && (
         <Alert
@@ -112,31 +139,6 @@ const App = () => {
           {userMessage}
         </Alert>
       )}
-
-      <div className="search-container">
-        <InputField id="search-bar" label="Search catalogue.." />
-        <PrimaryButton
-          text="Search"
-          icon={<SearchIcon />}
-          onClick={() => handleSearch()}
-        />
-      </div>
-
-      <div className="action-options">
-        <PrimaryButton
-          text="See catalogue"
-          icon={<LibraryMusicIcon />}
-          onClick={setCatalogue}
-        />
-
-        <PrimaryButton
-          text="Add new entry"
-          icon={<LibraryAddIcon />}
-          onClick={setForm}
-        />
-      </div>
-
-      {hasSearched && results.length === 0 ? <div>No results found</div> : null}
 
       {displayForm && <MusicForm onSubmit={handleAddingAlbums} />}
       {!displayForm && !hasSearched && <Catalogue albums={albums} />}

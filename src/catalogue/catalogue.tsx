@@ -17,7 +17,7 @@ export const Catalogue = ({ albums }: { albums: MusicEntry[] }) => {
         <h1>Collection ({albums.length})</h1>
         <p>
           Updated list of albums per artist in my collection. The list is sorted
-          alphabetically by artist name.
+          by release year and alphabetically by artist name.
         </p>
       </div>
       <div className="table-container">
