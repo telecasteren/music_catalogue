@@ -25,8 +25,8 @@
 }
 
 /*--- Calendar icon ---*/
-.MuiSvgIcon-root {
-  color: var(--input-field-primary) !important;
+.MuiPickersTextField-root .MuiSvgIcon-root {
+  color: var(--input-field-secondary) !important;
 }
 
 /*--- Year calendar window ---*/

@@ -8,20 +8,21 @@
   width: 100%;
   border-collapse: collapse;
   border-radius: 10px;
-  border: 1px solid #dddddd;
+  border: 1px solid var(--input-field-primary);
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
 }
 
 .table-container th {
   background-color: var(--accent-secondary);
-  color: #dcdcdc;
+  color: var(--text-secondary);
   font-size: 1.1rem;
 }
 
 .table-container th,
 .table-container td {
-  border: 1px solid #dddddd;
+  border: 1px solid var(--input-field-primary);
   padding: 20px;
   text-align: left;
 }

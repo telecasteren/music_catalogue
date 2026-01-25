@@ -6,6 +6,9 @@ import MusicForm from "./components/music-form";
 import InputField from "./components/input-field";
 import PrimaryButton from "./components/primary-button";
 import type { MusicEntry } from "./utils/types";
+import { Catalogue } from "./catalogue/catalogue";
+import { addAlbumEntry } from "./utils/api/add-album-entry";
+import { searchEvents } from "./utils/search/search-events";
 import {
   LibraryMusicIcon,
   LibraryAddIcon,
@@ -13,11 +16,8 @@ import {
   CheckIcon,
   ErrorOutlineIcon,
 } from "./components/utils/mui-icons";
-import { Catalogue } from "./catalogue/catalogue";
-import { handleAddAlbum } from "./utils/api/add-album-entry";
 
 const App = () => {
-  const [displaySearchBar, setDisplaySearchBar] = useState(false);
   const [displayForm, setDisplayForm] = useState(false);
   const [albums, setAlbums] = useState<MusicEntry[]>([]);
   const [results, setResults] = useState<MusicEntry[]>([]);
@@ -45,45 +45,25 @@ const App = () => {
     fetchAlbums();
   }, []);
 
-  const setSearch = () => {
-    setDisplaySearchBar(true);
-  };
-
   const setForm = () => {
     setDisplayForm(true);
   };
 
   const setCatalogue = () => {
-    setDisplaySearchBar(false);
     setDisplayForm(false);
   };
 
   const handleSearch = () => {
-    const searchInput = document.getElementById(
-      "search-bar",
-    ) as HTMLInputElement;
+    const results = searchEvents(albums);
 
-    const query = searchInput.value;
-    const searchResults = albums.filter(
-      (item) =>
-        item.artist.toLowerCase().includes(query) ||
-        item.album.toLowerCase().includes(query) ||
-        item.genre.toLowerCase().includes(query) ||
-        String(item.releaseYear).includes(query),
-    );
-
-    const sortedResults = searchResults.sort((a, b) =>
-      a.artist.localeCompare(b.artist),
-    );
-
-    setResults(sortedResults);
+    setResults(results);
     setHasSearched(true);
   };
 
-  const handleAddAlbumAndNotify = async (
+  const handleAddingAlbums = async (
     albumData: Omit<MusicEntry, "id" | "addedDate">,
   ) => {
-    const newAlbum = await handleAddAlbum(albumData);
+    const newAlbum = await addAlbumEntry(albumData);
     if (newAlbum) {
       setAlbums((prev) => [newAlbum, ...prev]);
       setDisplayForm(false);
@@ -100,23 +80,6 @@ const App = () => {
   return (
     <>
       <h1>Music Catalogue</h1>
-      <div className="action-options">
-        <PrimaryButton
-          text="See catalogue"
-          icon={<LibraryMusicIcon />}
-          onClick={setCatalogue}
-        />
-        <PrimaryButton
-          text="Search catalogue"
-          icon={<SearchIcon />}
-          onClick={setSearch}
-        />
-        <PrimaryButton
-          text="Add new entry"
-          icon={<LibraryAddIcon />}
-          onClick={setForm}
-        />
-      </div>
 
       {userMessage && isSuccess && (
         <Alert
@@ -150,23 +113,34 @@ const App = () => {
         </Alert>
       )}
 
-      {displaySearchBar && (
-        <div className="search-container">
-          <InputField id="search-bar" label="Search catalogue" />
-          <PrimaryButton
-            text="Search"
-            icon={<SearchIcon />}
-            onClick={() => handleSearch()}
-          />
-        </div>
-      )}
+      <div className="search-container">
+        <InputField id="search-bar" label="Search catalogue.." />
+        <PrimaryButton
+          text="Search"
+          icon={<SearchIcon />}
+          onClick={() => handleSearch()}
+        />
+      </div>
+
+      <div className="action-options">
+        <PrimaryButton
+          text="See catalogue"
+          icon={<LibraryMusicIcon />}
+          onClick={setCatalogue}
+        />
+
+        <PrimaryButton
+          text="Add new entry"
+          icon={<LibraryAddIcon />}
+          onClick={setForm}
+        />
+      </div>
+
       {hasSearched && results.length === 0 ? <div>No results found</div> : null}
 
-      {displayForm && <MusicForm onSubmit={handleAddAlbumAndNotify} />}
-      {!displaySearchBar && !displayForm && <Catalogue albums={albums} />}
-      {displaySearchBar && hasSearched && results.length > 0 && (
-        <Catalogue albums={results} />
-      )}
+      {displayForm && <MusicForm onSubmit={handleAddingAlbums} />}
+      {!displayForm && !hasSearched && <Catalogue albums={albums} />}
+      {hasSearched && results.length > 0 && <Catalogue albums={results} />}
     </>
   );
 };

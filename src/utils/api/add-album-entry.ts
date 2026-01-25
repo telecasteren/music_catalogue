@@ -2,7 +2,7 @@ import type { MusicEntry } from "../types";
 
 type NewAlbum = Omit<MusicEntry, "id" | "addedDate">;
 
-export const handleAddAlbum = async (albumData: NewAlbum) => {
+export const addAlbumEntry = async (albumData: NewAlbum) => {
   try {
     const response = await fetch("/albums", {
       method: "POST",

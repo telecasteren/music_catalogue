@@ -1,16 +1,17 @@
 :root {
-  --background-primary: #1c1b1a;
-  --background-secondary: #524e47;
+  --background-primary: #f1f3e0;
+  --background-secondary: #d2dcb6;
 
-  --text-primary: #e7e7e7;
+  --text-primary: #778873;
+  --text-secondary: #a1bc98;
 
-  --accent-primary: #247c27;
-  --accent-secondary: #2a2308;
+  --accent-primary: #a1bc98;
+  --accent-secondary: #778873;
 
-  --input-field-primary: #d0d0d0;
-  --input-field-secondary: #a0a0a0;
-  --input-field-hover: #8fbd8b;
+  --input-field-primary: #a1bc98;
+  --input-field-secondary: #a1bc98;
+  --input-field-hover: #a1bc98;
 
-  --button-primary-bg: #887114;
-  --button-primary-text: #e7e7e7;
+  --button-primary-bg: #a1bc98;
+  --button-primary-text: #f1f3e0;
 }

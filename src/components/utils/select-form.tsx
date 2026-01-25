@@ -13,8 +13,11 @@ export const SelectForm = ({ value, onChange }: SelectFormProps) => {
     { value: "classic-rock", label: "Classic Rock" },
     { value: "punk-rock", label: "Punk Rock" },
     { value: "folk", label: "Folk" },
+    { value: "country", label: "Country" },
     { value: "pop", label: "Pop" },
     { value: "pop-rock", label: "Pop Rock" },
+    { value: "reggae", label: "Reggae" },
+    { value: "funk", label: "Funk" },
     { value: "jazz", label: "Jazz" },
     { value: "classical", label: "Classical" },
   ];
@@ -38,6 +41,14 @@ export const SelectForm = ({ value, onChange }: SelectFormProps) => {
         value={value}
         label="Genre"
         onChange={onChange}
+        MenuProps={{
+          PaperProps: {
+            style: {
+              maxHeight: 250,
+              overflowY: "auto",
+            },
+          },
+        }}
       >
         {menuItemList.map((item) => (
           <MenuItem key={item.value} value={item.value}>

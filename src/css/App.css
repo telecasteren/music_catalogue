@@ -23,3 +23,7 @@
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
+
+button .MuiSvgIcon-root {
+  color: var(--button-primary-text) !important;
+}
