@@ -29,11 +29,17 @@ const App = () => {
     const fetchAlbums = async () => {
       const response = await fetch("/albums");
       if (!response.ok) {
-        console.error("Failed to fetch albums:", response.statusText);
+        setIsSuccess(false);
+        setUserMessage("Failed to fetch albums. " + response.statusText);
         return;
       }
-      const data = await response.json();
-      setAlbums(data);
+      const data = (await response.json()) as MusicEntry[];
+
+      const sortedResults = data.sort((a, b) =>
+        a.artist.localeCompare(b.artist),
+      );
+
+      setAlbums(sortedResults);
     };
 
     fetchAlbums();
@@ -65,7 +71,12 @@ const App = () => {
         item.genre.toLowerCase().includes(query) ||
         String(item.releaseYear).includes(query),
     );
-    setResults(searchResults);
+
+    const sortedResults = searchResults.sort((a, b) =>
+      a.artist.localeCompare(b.artist),
+    );
+
+    setResults(sortedResults);
     setHasSearched(true);
   };
 
