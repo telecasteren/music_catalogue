@@ -4,6 +4,7 @@ import SearchIcon from "@mui/icons-material/Search";
 import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 import CheckIcon from "@mui/icons-material/Check";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
+import AddIcon from "@mui/icons-material/Add";
 
 export {
   AlbumIcon,
@@ -12,4 +13,5 @@ export {
   SearchIcon,
   CheckIcon,
   ErrorOutlineIcon,
+  AddIcon,
 };

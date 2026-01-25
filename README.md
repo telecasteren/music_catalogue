@@ -11,7 +11,7 @@ A library of my vinyl collection.
 - Prisma ORM
 - Neon Postgres
 - Vite
-- Express
+- Node.js/Express
 - MUI
 - React
 - Typescript
