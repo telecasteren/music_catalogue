@@ -6,7 +6,7 @@ import MusicForm from "./components/music-form";
 import InputField from "./components/input-field";
 import PrimaryButton from "./components/primary-button";
 import type { MusicEntry } from "./utils/types";
-import { Catalogue } from "./catalogue/catalogue";
+import { Catalogue } from "./components/catalogue/catalogue";
 import { addAlbumEntry } from "./utils/api/add-album-entry";
 import { searchEvents } from "./utils/search/search-events";
 import {
@@ -128,6 +128,7 @@ const App = () => {
         <Alert
           sx={{
             bgcolor: "#f2dede",
+            color: "red !important",
             mt: 4,
             width: "fit-content",
             margin: "20px auto",

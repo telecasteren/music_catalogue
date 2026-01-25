@@ -5,6 +5,7 @@ import LibraryAddIcon from "@mui/icons-material/LibraryAdd";
 import CheckIcon from "@mui/icons-material/Check";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import AddIcon from "@mui/icons-material/Add";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 export {
   AlbumIcon,
@@ -14,4 +15,5 @@ export {
   CheckIcon,
   ErrorOutlineIcon,
   AddIcon,
+  DeleteIcon,
 };

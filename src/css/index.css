@@ -31,3 +31,8 @@ input:-webkit-autofill:active {
   background: var(--accent-primary);
   color: var(--button-primary-text);
 }
+
+p {
+  max-width: 1000px;
+  justify-self: center;
+}

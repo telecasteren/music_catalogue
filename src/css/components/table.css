@@ -30,3 +30,19 @@
 .table-container td {
   background-color: var(--background-secondary);
 }
+
+.last-col-wrapper {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-icon {
+  cursor: pointer;
+  color: var(--text-secondary);
+}
+
+.delete-icon:hover {
+  color: var(--text-primary);
+}

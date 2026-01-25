@@ -44,7 +44,7 @@ const MusicForm = ({ onSubmit }: MusicFormProps) => {
     if (!form.releaseYear) missingFields.push("Release Year");
 
     if (missingFields.length > 0) {
-      setError(`Required fields: ${missingFields.join(", ")}`);
+      setError(`Required fields left: ${missingFields.join(", ")}`);
       return;
     }
 

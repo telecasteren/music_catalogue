@@ -27,8 +27,3 @@
 button .MuiSvgIcon-root {
   color: var(--button-primary-text) !important;
 }
-
-p {
-  max-width: 1000px;
-  justify-self: center;
-}

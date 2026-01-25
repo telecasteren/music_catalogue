@@ -48,4 +48,17 @@ router.post("/", async (req, res) => {
   }
 });
 
+// DELETE /albums/:id
+router.delete("/:id", async (req, res) => {
+  const id = Number(req.params.id);
+
+  try {
+    await prisma.album.delete({ where: { id } });
+    res.status(200).json({ message: "Album deleted" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to delete album" });
+  }
+});
+
 export default router;
