@@ -3,6 +3,7 @@
 @import url("../css/components/mui-datepicker.css");
 @import url("../css/components/mui-inputfield.css");
 @import url("../css/components/mui-selectform.css");
+@import url("../css/components/wishlist.css");
 
 :root {
   font-family: "Roboto", system-ui, Avenir, Helvetica, Arial, sans-serif;

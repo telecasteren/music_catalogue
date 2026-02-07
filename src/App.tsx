@@ -9,12 +9,14 @@ import type { MusicEntry } from "./utils/types";
 import { Catalogue } from "./components/catalogue/catalogue";
 import { addAlbumEntry } from "./utils/api/add-album-entry";
 import { searchEvents } from "./utils/events/search-events";
+import { Wishlist } from "./components/Wishlist";
 import {
   LibraryMusicIcon,
   LibraryAddIcon,
   SearchIcon,
   CheckIcon,
   ErrorOutlineIcon,
+  CakeIcon,
 } from "./components/utils/mui-icons";
 
 const App = () => {
@@ -24,6 +26,9 @@ const App = () => {
   const [hasSearched, setHasSearched] = useState(false);
   const [userMessage, setUserMessage] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const [activeView, setActiveView] = useState<"catalogue" | "wishlist">(
+    "catalogue",
+  );
 
   useEffect(() => {
     const fetchAlbums = async () => {
@@ -34,14 +39,11 @@ const App = () => {
         return;
       }
       const data = (await response.json()) as MusicEntry[];
-
       const sortedResults = data.sort((a, b) =>
         a.artist.localeCompare(b.artist),
       );
-
       setAlbums(sortedResults);
     };
-
     fetchAlbums();
   }, []);
 
@@ -51,11 +53,17 @@ const App = () => {
 
   const setCatalogue = () => {
     setDisplayForm(false);
+    setActiveView("catalogue");
+  };
+
+  const seeWishlist = () => {
+    setDisplayForm(false);
+    setActiveView("wishlist");
+    setHasSearched(false);
   };
 
   const handleSearch = () => {
     const results = searchEvents(albums);
-
     setResults(results);
     setHasSearched(true);
   };
@@ -83,27 +91,37 @@ const App = () => {
     <>
       <h1>Music Catalogue</h1>
 
-      <div className="search-container">
-        <InputField id="search-bar" label="Search catalogue.." />
-        <PrimaryButton
-          text="Search"
-          icon={<SearchIcon />}
-          onClick={() => handleSearch()}
-        />
-      </div>
+      {activeView === "catalogue" && (
+        <div className="search-container">
+          <InputField id="search-bar" label="Search catalogue.." />
+          <PrimaryButton
+            text="Search"
+            icon={<SearchIcon />}
+            onClick={() => handleSearch()}
+          />
+        </div>
+      )}
 
       <div className="action-options">
         <PrimaryButton
-          text="See catalogue"
+          text="Wishlist"
+          icon={<CakeIcon />}
+          onClick={seeWishlist}
+        />
+
+        <PrimaryButton
+          text="Catalogue"
           icon={<LibraryMusicIcon />}
           onClick={setCatalogue}
         />
 
-        <PrimaryButton
-          text="Add new entry"
-          icon={<LibraryAddIcon />}
-          onClick={setForm}
-        />
+        {activeView === "catalogue" && (
+          <PrimaryButton
+            text="New entry"
+            icon={<LibraryAddIcon />}
+            onClick={setForm}
+          />
+        )}
       </div>
 
       {hasSearched && results.length === 0 ? <div>No results found</div> : null}
@@ -142,8 +160,20 @@ const App = () => {
       )}
 
       {displayForm && <MusicForm onSubmit={handleAddingAlbums} />}
-      {!displayForm && !hasSearched && <Catalogue albums={albums} />}
-      {hasSearched && results.length > 0 && <Catalogue albums={results} />}
+
+      {!displayForm &&
+        activeView === "catalogue" &&
+        (hasSearched ? (
+          results.length > 0 ? (
+            <Catalogue albums={results} />
+          ) : (
+            <div>No results found</div>
+          )
+        ) : (
+          <Catalogue albums={albums} />
+        ))}
+
+      {!displayForm && activeView === "wishlist" && <Wishlist />}
     </>
   );
 };

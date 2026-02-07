@@ -7,6 +7,7 @@ import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 import AddIcon from "@mui/icons-material/Add";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SwapVertIcon from "@mui/icons-material/SwapVert";
+import CakeIcon from "@mui/icons-material/Cake";
 
 export {
   AlbumIcon,
@@ -18,4 +19,5 @@ export {
   AddIcon,
   DeleteIcon,
   SwapVertIcon,
+  CakeIcon,
 };

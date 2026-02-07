@@ -1,0 +1,17 @@
+.wishlist-container {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 500px;
+  justify-self: center;
+}
+
+.wishlist-ul {
+  padding: 0;
+  text-align: left;
+}
+
+#wishlist-form-label {
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
