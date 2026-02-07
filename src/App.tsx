@@ -8,7 +8,7 @@ import PrimaryButton from "./components/primary-button";
 import type { MusicEntry } from "./utils/types";
 import { Catalogue } from "./components/catalogue/catalogue";
 import { addAlbumEntry } from "./utils/api/add-album-entry";
-import { searchEvents } from "./utils/search/search-events";
+import { searchEvents } from "./utils/events/search-events";
 import {
   LibraryMusicIcon,
   LibraryAddIcon,

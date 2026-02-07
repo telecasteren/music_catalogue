@@ -1,7 +1,5 @@
 ## TO DO
 
-- Delete record button
-
 ### Deploy
 
 - Railway, Render or Vercel
