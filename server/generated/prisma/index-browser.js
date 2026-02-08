@@ -130,6 +130,12 @@ exports.Prisma.AlbumScalarFieldEnum = {
   genre: 'genre'
 };
 
+exports.Prisma.WishListScalarFieldEnum = {
+  id: 'id',
+  artist: 'artist',
+  album: 'album'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -142,7 +148,8 @@ exports.Prisma.QueryMode = {
 
 
 exports.Prisma.ModelName = {
-  Album: 'Album'
+  Album: 'Album',
+  WishList: 'WishList'
 };
 
 /**

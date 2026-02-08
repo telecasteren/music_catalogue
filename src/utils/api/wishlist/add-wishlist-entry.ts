@@ -1,10 +1,10 @@
-import type { MusicEntry } from "../types";
+import type { WishList } from "../../types";
 
-type NewAlbum = Omit<MusicEntry, "id" | "addedDate">;
+type NewAlbum = Omit<WishList, "id">;
 
-export const addAlbumEntry = async (albumData: NewAlbum) => {
+export const addWishlistEntry = async (albumData: NewAlbum) => {
   try {
-    const response = await fetch("/albums", {
+    const response = await fetch("/wishlist", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -20,7 +20,7 @@ export const addAlbumEntry = async (albumData: NewAlbum) => {
       throw new Error("Failed to add album");
     }
 
-    const newAlbum = (await response.json()) as MusicEntry;
+    const newAlbum = (await response.json()) as WishList;
     return newAlbum;
   } catch (error) {
     throw new Error("Error adding album: " + (error as Error).message);

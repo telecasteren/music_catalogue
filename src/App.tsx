@@ -7,8 +7,8 @@ import InputField from "./components/input-field";
 import PrimaryButton from "./components/primary-button";
 import type { MusicEntry } from "./utils/types";
 import { Catalogue } from "./components/catalogue/catalogue";
-import { addAlbumEntry } from "./utils/api/add-album-entry";
-import { searchEvents } from "./utils/events/search-events";
+import { addAlbumEntry } from "./utils/api/albums/add-album-entry";
+import { searchCatalogueEvents } from "./utils/events/search-events";
 import { Wishlist } from "./components/Wishlist";
 import {
   LibraryMusicIcon,
@@ -63,7 +63,7 @@ const App = () => {
   };
 
   const handleSearch = () => {
-    const results = searchEvents(albums);
+    const results = searchCatalogueEvents(albums);
     setResults(results);
     setHasSearched(true);
   };
@@ -89,11 +89,11 @@ const App = () => {
 
   return (
     <>
-      <h1>Music Catalogue</h1>
+      <h1>GrammoFon</h1>
 
       {activeView === "catalogue" && (
         <div className="search-container">
-          <InputField id="search-bar" label="Search catalogue.." />
+          <InputField id="search-bar" label="Search catalogue..." />
           <PrimaryButton
             text="Search"
             icon={<SearchIcon />}

@@ -23,3 +23,12 @@ model Album {
   @@index([artist])
   @@index([genre])
 }
+
+model WishList {
+  id      Int     @id @default(autoincrement())
+  artist  String
+  album   String
+
+  @@index([artist])
+  @@index([album])
+}

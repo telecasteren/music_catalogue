@@ -1,17 +1,34 @@
 .wishlist-container {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: center;
   width: 500px;
   justify-self: center;
 }
 
 .wishlist-ul {
   padding: 0;
-  text-align: left;
+}
+
+.wishlist-ul li {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+  list-style-type: none;
+  border-bottom: 1px solid var(--accent-primary);
+  margin-bottom: 8px;
+  padding: 8px;
 }
 
 #wishlist-form-label {
   font-weight: bold;
   margin-bottom: 0.5rem;
+}
+
+.wishlist-input-container {
+  display: flex;
+  justify-self: center;
+  gap: 10px;
+  margin: 20px 0 20px 0;
 }

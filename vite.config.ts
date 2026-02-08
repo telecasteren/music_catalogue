@@ -7,6 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/albums": "http://localhost:4000",
+      "/wishlist": "http://localhost:4000",
     },
   },
 });

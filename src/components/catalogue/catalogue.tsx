@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import type { MusicEntry } from "../../utils/types";
-import Alert from "@mui/material/Alert";
+import { UserMessage } from "../utils/user-message";
 import PrimaryButton from "../primary-button";
-import { AddIcon, CheckIcon, ErrorOutlineIcon } from "../utils/mui-icons";
+import { AddIcon } from "../utils/mui-icons";
 import { DeleteBtn } from "./delete-button";
-import { deleteAlbumEntry } from "../../utils/api/delete-album-entry";
+import { deleteAlbumEntry } from "../../utils/api/albums/delete-album-entry";
 import { SortButton } from "./sort-icon";
 import { sortEvents } from "../../utils/events/sort-events";
 
@@ -73,36 +73,11 @@ export const Catalogue = ({ albums }: { albums: MusicEntry[] }) => {
         </p>
 
         {userMessage && !error && (
-          <Alert
-            sx={{
-              bgcolor: "#dff0d8",
-              mt: 4,
-              width: "fit-content",
-              margin: "20px auto",
-            }}
-            variant="outlined"
-            icon={<CheckIcon fontSize="inherit" />}
-            severity="success"
-          >
-            {userMessage}
-          </Alert>
+          <UserMessage userMessage={userMessage} isSuccess={true} />
         )}
 
         {userMessage && error && (
-          <Alert
-            sx={{
-              bgcolor: "#f2dede",
-              color: "red !important",
-              mt: 4,
-              width: "fit-content",
-              margin: "20px auto",
-            }}
-            variant="outlined"
-            icon={<ErrorOutlineIcon fontSize="inherit" />}
-            severity="error"
-          >
-            {userMessage}
-          </Alert>
+          <UserMessage userMessage={userMessage} isSuccess={false} />
         )}
       </div>
       <div className="table-container">

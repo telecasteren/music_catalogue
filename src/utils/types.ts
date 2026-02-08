@@ -5,3 +5,9 @@ export type MusicEntry = {
   genre: string;
   releaseYear: number;
 };
+
+export type WishList = {
+  id: number;
+  artist: string;
+  album: string;
+};
