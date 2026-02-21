@@ -124,8 +124,6 @@ const App = () => {
         )}
       </div>
 
-      {hasSearched && results.length === 0 ? <div>No results found</div> : null}
-
       {userMessage && isSuccess && (
         <Alert
           sx={{

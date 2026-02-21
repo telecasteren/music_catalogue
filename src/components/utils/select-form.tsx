@@ -14,6 +14,7 @@ export const SelectForm = ({ value, onChange }: SelectFormProps) => {
     { value: "punk-rock", label: "Punk Rock" },
     { value: "pop-rock", label: "Pop Rock" },
     { value: "pop", label: "Pop" },
+    { value: "electronic", label: "Electronic" },
     { value: "folk", label: "Folk" },
     { value: "blues", label: "Blues" },
     { value: "country", label: "Country" },

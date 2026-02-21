@@ -6,8 +6,7 @@
 
 ### Future
 
-- Wishlist
 - Favourites
-- Cover image
+- Cover image -> integrate with Discogs or similar?
 - Sample music
 - Users?
