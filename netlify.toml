@@ -1,0 +1,28 @@
+[[redirects]]
+  from = "/albums"
+  to = "https://music-catalogue-api.onrender.com/albums"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/albums/*"
+  to = "https://music-catalogue-api.onrender.com/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/wishlist"
+  to = "https://music-catalogue-api.onrender.com/wishlist"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/wishlist/*"
+  to = "https://music-catalogue-api.onrender.com/wishlist/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
