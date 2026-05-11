@@ -1,9 +1,5 @@
 ## TO DO
 
-### Deploy
-
-- Railway, Render or Vercel
-
 ### Future
 
 - Favourites
