@@ -12,7 +12,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prisma": "cd server && npx prisma studio"
+    "prisma": "cd server && pnpx prisma studio"
   },
   "dependencies": {
     "@base-ui/react": "^1.1.0",
